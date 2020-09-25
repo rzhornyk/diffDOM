@@ -204,7 +204,7 @@ export class DiffFinder {
         let childNodesLengthDifference = Math.abs(t1ChildNodes.length - t2ChildNodes.length)
         let diffs = []
         let index = 0
-        if (!this.options.maxChildCount || last < this.options.maxChildCount) {
+        if (!this.options.disableGroupRelocation && (!this.options.maxChildCount || last < this.options.maxChildCount)) {
             const subtrees = t1.subsets && t1.subsetsAge-- ? t1.subsets : (t1.childNodes && t2.childNodes) ? markSubTrees(t1, t2) : []
 
             if (subtrees.length > 0) {
